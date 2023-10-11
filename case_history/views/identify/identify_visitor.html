@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no" name="viewport">
+    <title>信息管理中心</title>
+    <link href="../bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet" title=""/>
+    <link href="../css/style.css" rel="stylesheet" title="" type="text/css"/>
+    <link href="../css/dermadefault.css" rel="stylesheet" title="blue" type="text/css"/>
+    <link disabled="disabled" href="../css/dermagreen.css" rel="stylesheet" title="green" type="text/css"/>
+    <link disabled="disabled" href="../css/dermaorange.css" rel="stylesheet" title="orange" type="text/css"/>
+    <link href="../css/templatecss.css" rel="stylesheet" title="" type="text/css"/>
+    <script src="../js/jquery.1.10.2min.js"></script>
+    <script src="../script/jquery.cookie.js" type="text/javascript"></script>
+    <script src="../bootstrap-3.3.5-dist/js/bootstrap.min.js" type="text/javascript"></script>
+
+    <!--angular ui--->
+    <link href="../ui-layout-0.0.0/ui-layout.css" rel="stylesheet" title="" type="text/css"/>
+    <script src="../script/angular.min.js"></script>
+    <script src="../ui-layout-0.0.0/ui-layout.js"></script>
+
+
+    <script src="http://www.jq22.com/jquery/1.8.3/jquery.min.js"></script>
+    <script src="../js/jquery.date_input.pack.js" type="text/javascript"></script>
+    <script src="../js/forthefacility.js"></script>
+</head>
+<body>
+<!--上面页眉-->
+<nav id="facilityNav" class="nav navbar-default navbar-mystyle navbar-fixed-top"></nav>
+<p id="reEmail" style="display: none">{{email}}</p>
+
+<div class="down-main">
+    <!--    左边选择栏-->
+    <div id="leftSelect" class="left-main left-full"></div>
+
+    <div class="right-product right-full">
+        <section id="layout" ng-app="doc.ui-layout">
+            <div class="layout-mock" ui-layout>
+                <ui-layout options="{ flow : 'column' }">
+                    <div class="center-back ">
+                        <div class="container-fluid">
+                            <div class="info-center">
+                                <form action="/home/userinfo_change" class="form-group" id="myform_" method="post">
+                                    <div class="page-header">
+                                        <div class="pull-left">
+                                            <h4>账号信息管理</h4>
+                                        </div>
+                                        <script type="application/javascript">
+                                            function setReadonly_() {
+                                                var x = document.getElementsByClassName("ro_");
+                                                for (var i = 0; !(i >= x.length); i++) {
+                                                    x[i].readOnly = false;
+                                                }
+                                            }
+
+                                            function submeit_() {
+                                                var x = document.getElementsByClassName("ro_");
+                                                for (var i = 0; !(i >= x.length); i++) {
+                                                    x[i].readOnly = true;
+                                                }
+                                                document.getElementById('myform_').submit();
+
+                                            }
+
+                                        </script>
+                                        <div class="pull-right">
+                                            <button class="btn btn-mystyle btn-sm" type="button" onclick="submeit_()">
+                                                保存
+                                            </button>
+                                            <button class="btn btn-mystyle btn-sm" type="button"
+                                                    onclick="setReadonly_();">修改
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="search-box row div_for_identify_">
+                                        <div class="col-md-10">
+                                            <div class="form-group div_for_identify">
+                                                <span class="pull-left form-span">昵称:</span>
+                                                <input class="form-control ro_" name="account_name" type="text"
+                                                       value="{{account_name}}" readonly>
+                                            </div>
+                                            <div class="form-group div_for_identify">
+                                                <span class="pull-left form-span">邮箱:</span>
+                                                <input class="form-control ro_" name="account_email"
+                                                       value="{{account_email}}"
+                                                       type="text" readonly>
+                                            </div>
+                                            <div class="form-group div_for_identify">
+                                                <span class="pull-left form-span">密码:</span>
+                                                <input class="form-control ro_" name="account_pwd"
+                                                       value="{{account_pwd}}"
+                                                       type="text" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <form action="/home/register" class="form-group" id="myform" method="post">
+                                    <div class="page-header">
+                                        <div class="pull-left">
+                                            <h4>访问者信息管理</h4>
+                                        </div>
+                                        <script type="application/javascript">
+                                            function setReadonly() {
+                                                var x = document.getElementsByClassName("ro");
+                                                for (var i = 0; !(i >= x.length); i++) {
+                                                    x[i].readOnly = false;
+                                                }
+                                            }
+
+                                            function submeit() {
+                                                var x = document.getElementsByClassName("ro");
+                                                for (var i = 0; !(i >= x.length); i++) {
+                                                    x[i].readOnly = true;
+                                                }
+                                                document.getElementById('myform').submit();
+                                            }
+                                        </script>
+                                        <div class="pull-right">
+                                            <button class="btn btn-mystyle btn-sm" type="button" onclick="submeit()">
+                                                保存
+                                            </button>
+                                            <button class="btn btn-mystyle btn-sm" type="button"
+                                                    onclick="setReadonly();">修改
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="search-box row div_for_identify_">
+                                        <div class="col-md-14">
+                                            <div class="form-group div_for_identify">
+                                                <span class="pull-left form-span">姓名:</span>
+                                                <input class="form-control ro" name="name" placeholder=""
+                                                       type="text" value="{{name}}" readonly>
+                                            </div>
+                                            <div class="form-group div_for_identify">
+                                                <span class="pull-left form-span">身份证:</span>
+                                                <input class="form-control ro" name="idNum" value="{{idNum}}"
+                                                       type="text" readonly>
+                                            </div>
+                                            <div class="form-group div_for_identify">
+                                                <span class="pull-left form-span">联系电话:</span>
+                                                <input class="form-control ro" name="tel" value="{{tel}}"
+                                                       type="text" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="form-group div_for_identify">
+                                            <span class="pull-left form-span">工作单位:</span>
+                                            <textarea class="form-control ro" rows="2" cols="3" name="workplace"
+                                                      style="width: 338px; height: 87px;resize: none;"
+                                                      onfocus="if(value=='请输入工作单位'){value=''}" spellcheck="false"
+                                                      onblur="if (value ==''){value='请输入工作单位'}"
+                                                      readonly>{{workplace}}</textarea>
+                                        </div>
+                                    </div>
+                                    <!--                                        <div class="col-md-4">-->
+
+                                    <!--                                        </div>-->
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </ui-layout>
+            </div>
+        </section>
+    </div>
+</div>
+<script type="application/javascript">
+    let email=$("#reEmail").text();
+    $("#facilityNav").html(navbarHtml_visitor(email));
+    $("#leftSelect").html(leftSelect_visitor());
+    $("#li2").addClass("active");
+</script>
+
+<script type="text/javascript">
+    /*Angular-UI-layout*/
+    angular.module('doc.ui-layout', ['ui.layout']);
+
+    $(function () {
+        /*换肤*/
+        $(".dropdown .changecolor li").click(function () {
+            var style = $(this).attr("id");
+            $("link[title!='']").attr("disabled", "disabled");
+            $("link[title='" + style + "']").removeAttr("disabled");
+
+            $.cookie('mystyle', style, {expires: 7}); // 存储一个带7天期限的 cookie
+        })
+        var cookie_style = $.cookie("mystyle");
+        if (cookie_style != null) {
+            $("link[title!='']").attr("disabled", "disabled");
+            $("link[title='" + cookie_style + "']").removeAttr("disabled");
+        }
+        /*左侧导航栏显示隐藏功能*/
+        $(".subNav").click(function () {
+            /*显示*/
+            if ($(this).find("span:first-child").attr('class') == "title-icon glyphicon glyphicon-chevron-down") {
+                $(this).find("span:first-child").removeClass("glyphicon-chevron-down");
+                $(this).find("span:first-child").addClass("glyphicon-chevron-up");
+                $(this).removeClass("sublist-down");
+                $(this).addClass("sublist-up");
+            }
+            /*隐藏*/
+            else {
+                $(this).find("span:first-child").removeClass("glyphicon-chevron-up");
+                $(this).find("span:first-child").addClass("glyphicon-chevron-down");
+                $(this).removeClass("sublist-up");
+                $(this).addClass("sublist-down");
+            }
+            // 修改数字控制速度， slideUp(500)控制卷起速度
+            $(this).next(".navContent").slideToggle(300).siblings(".navContent").slideUp(300);
+        })
+        /*左侧导航栏缩进功能*/
+        $(".left-main .sidebar-fold").click(function () {
+
+            if ($(this).parent().attr('class') == "left-main left-full") {
+                $(this).parent().removeClass("left-full");
+                $(this).parent().addClass("left-off");
+
+                $(this).parent().parent().find(".right-product").removeClass("right-full");
+                $(this).parent().parent().find(".right-product").addClass("right-off");
+
+
+            } else {
+                $(this).parent().removeClass("left-off");
+                $(this).parent().addClass("left-full");
+
+                $(this).parent().parent().find(".right-product").removeClass("right-off");
+                $(this).parent().parent().find(".right-product").addClass("right-full");
+
+
+            }
+        })
+
+        /*左侧鼠标移入提示功能*/
+        $(".sBox ul li").mouseenter(function () {
+            if ($(this).find("span:last-child").css("display") == "none") {
+                $(this).find("div").show();
+            }
+        }).mouseleave(function () {
+            $(this).find("div").hide();
+        })
+    })
+</script>
+</body>
+</html>
